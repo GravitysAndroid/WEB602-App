@@ -1,0 +1,61 @@
+.success-msg {
+    color: #57A773;
+    padding: 10px 15px;
+}
+  
+  
+.error-msg {
+    color: #EE6352;
+    padding: 10px 15px;
+}
+
+.label{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.control{
+    display: flex;
+    padding: 10px;
+    width: 25%;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+}
+
+.control-message{
+    display: flex;
+    padding: 10px;
+    width: 25%;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+    resize: vertical;
+}
+
+.form-group{
+    background-color: #fff;
+    padding: 2rem 0 2rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.button{
+    appearance:none;
+    -webkit-appearance:none;
+    padding:10px;
+    border:none;
+    background-color:#242424;
+    color:#fff;
+    font-weight:600;
+    border-radius:5px;
+    width:25%;
+    margin-left: 37.5%;
+    margin-bottom: 15px;
+}
