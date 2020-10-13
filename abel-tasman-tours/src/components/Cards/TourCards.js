@@ -23,8 +23,8 @@ let cardDataOne = [
 ];
 
 //Creates data to enter into the datastore which contains three different pictures
-const cardDataTwo = [
-  {src:'images/img-3.jpg' ,
+let cardDataTwo = [
+  /* {src:'images/img-3.jpg' ,
   text:'Outdoor three day camp' ,
   label:'Price: $600' ,
   path:'/tours'},
@@ -37,12 +37,12 @@ const cardDataTwo = [
   {src:'images/img-3.jpg' ,
   text:'Explore the wonderful land marks around the area' ,
   label:'Price: $200' ,
-  path:'/tours'}
+  path:'/tours'} */
 ];
 
 //Creates data to enter into the datastore which contains three different pictures
-const cardDataThree = [
-  {src:'images/img-3.jpg' ,
+let cardDataThree = [
+  /* {src:'images/img-3.jpg' ,
   text:'Go inland through the bush and experience river crossing' ,
   label:'Price: $300' ,
   path:'/tours'},
@@ -55,7 +55,7 @@ const cardDataThree = [
   {src:'images/img-3.jpg' ,
   text:'Take a helicopter to a secluded beach' ,
   label:'Price: $700' ,
-  path:'/tours'}
+  path:'/tours'} */
 ];   
 
 //Creates a list in which the data from the cardData gets passed into to display
@@ -123,6 +123,8 @@ function TourCards() {
       );
       setData(result.data);
       cardDataOne = result.data;
+      cardDataTwo = result.data;
+      cardDataThree = result.data;
       //alert(cardDataOne[0].label);
     }
     fetchData(); 
@@ -150,10 +152,24 @@ function TourCards() {
          {/*  {listItemsOne} */}
             </ul>
             <ul className='cards__items'>
-              {listItemsTwo}
+            {cardDataTwo.map((item) => 
+            <CardItem 
+              src={item.src}
+              text={item.text} 
+              label={item.label}
+              path={item.path}
+          />)}
+              {/* {listItemsTwo} */}
             </ul>
             <ul className='cards__items'>
-              {listItemsThree}
+            {cardDataThree.map((item) => 
+            <CardItem 
+              src={item.src}
+              text={item.text} 
+              label={item.label}
+              path={item.path}
+          />)}
+              {/* {listItemsThree} */}
             </ul>
           </div>
         </div>
