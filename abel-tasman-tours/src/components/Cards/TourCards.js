@@ -94,28 +94,6 @@ function TourCards() {
   // this useEffect will run once
   // similar to componentDidMount()
 
-  /*************************************************************************************************************/
-  /* useEffect(async() => {
-    await fetch("/api")
-      .then(res => res.json())
-      .then(
-        (result) => {
-          setIsLoaded(true);
-          setItems(result);
-          cardDataOne = result;
-          //alert("Got data" + items[0].label);
-        },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
-        (error) => {
-          setIsLoaded(true);
-          setError(error);
-        }
-      )
-  }, []) */
-/*************************************************************************************************************/
-
   useEffect( () => {
     const fetchData = async () =>{
       const result = await axios(
