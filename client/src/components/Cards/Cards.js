@@ -34,7 +34,7 @@ path:'/tours'} */
 ];
 
 //Creates a list in which the data from the cardData gets passed into to display
-const listItemsOne = cardDataHomeOne.map((data) =>  
+/* const listItemsOne = cardDataHomeOne.map((data) =>  
   <CardItem 
     src={data.src}
     text={data.text} 
@@ -49,7 +49,7 @@ const listItemsTwo = cardDataHomeTwo.map((data) =>
     text={data.text} 
     label={data.label}
     path={data.path}
-/>);  
+/>);  */ 
 
 function Cards() {
   const [error, setError] = useState(null);

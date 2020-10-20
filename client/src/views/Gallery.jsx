@@ -12,32 +12,41 @@ let images = [
     'https://haydenreactwebpage.imgix.net/https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Ff%2Ffc%2FHawksbay_beach_karachi_pakistan.jpg?expires=70719731244&s=9bba2db17cbf2a6be1725da72a5c72b7' */
 ]
 
+/* const listItemsOne = images.map((item) =>  
+  <Slider
+    slides={item.images}
+/>); */
+
 //Is the base gallery page, just calls functions to display
 export default function Gallery (){
-    const [error, setError] = useState(null);
-    const [isLoaded, setIsLoaded] = useState(false);
-    const [data, setData] = useState({ hits: [] });
+  const [error, setError] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [data, setData] = useState({ hits: [] });
   
-    // Note: the empty deps array [] means
-    // this useEffect will run once
-    // similar to componentDidMount()
+  // Note: the empty deps array [] means
+  // this useEffect will run once
+  // similar to componentDidMount()
   
-    useEffect( () => {
-      const fetchData = async () =>{
-        const result = await axios(
-          '/api',
-        );
-        setData(result.data);
-        images = result.data;
-        //alert(cardDataOne[0].label);
-      }
-      fetchData(); 
-    });
-    return(
-        <>
-        <h1 className='gallery'>Gallery</h1>
-            <Slider  slides={images} />
-            <Footer />
-        </>
-    )
+  useEffect( () => {
+    const fetchData = async () =>{
+      const result = await axios(
+        '/api',
+      );
+      setData(result.data);
+      images = result.data;
+      //alert(cardDataOne[0].label);
+    }
+    fetchData(); 
+  });
+  return(
+    <>
+      <h1 className='gallery'>Gallery</h1>
+      {images.map((item) =>  
+        <Slider
+          slides={item.images}
+      />)}
+      {/* <Slider  slides={images} /> */}
+      <Footer />
+    </>
+  )
 }
