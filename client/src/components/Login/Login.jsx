@@ -3,7 +3,7 @@ import loginImage from './login.png'
 
 export class Login extends React.Component{
     constructor(props){
-        //super(props);
+        super(props);
     }
     //rendering the actual form for the user to input into
      render(){
