@@ -1,3 +1,5 @@
+import loginImage from './login.png'
+
 const express = require('express')
 const app = express()
 const port = 3001
@@ -88,6 +90,10 @@ const images = [
   'https://haydenreactwebpage.imgix.net/https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fd%2Fd2%2FSunset_Over_Golden_Bay_%2528128526109%2529.jpeg?expires=70719731107&s=4866839a6ff38c099fca05f45dbd2a56',
   'https://haydenreactwebpage.imgix.net/https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Ff%2Ffc%2FHawksbay_beach_karachi_pakistan.jpg?expires=70719731244&s=9bba2db17cbf2a6be1725da72a5c72b7'
 ]
+
+const loginImage = [
+
+];
 
 app.get('/api/', (req, res) => {
   res.send(cardDataOne)

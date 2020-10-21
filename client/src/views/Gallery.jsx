@@ -18,6 +18,7 @@ let images = [
 />); */
 
 //Is the base gallery page, just calls functions to display
+
 export default function Gallery (){
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
