@@ -89,10 +89,6 @@ const images = [
   'https://haydenreactwebpage.imgix.net/https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Ff%2Ffc%2FHawksbay_beach_karachi_pakistan.jpg?expires=70719731244&s=9bba2db17cbf2a6be1725da72a5c72b7'
 ]
 
-const loginImage = [
-
-];
-
 app.get('/api/', (req, res) => {
   res.send(cardDataOne)
   res.send(cardDataTwo)
@@ -100,8 +96,6 @@ app.get('/api/', (req, res) => {
 
   res.send(cardDataHomeOne)
   res.send(cardDataHomeTwo)
-
-  res.send(images)
 })
 
 app.listen(port, () => {
