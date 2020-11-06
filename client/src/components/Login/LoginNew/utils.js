@@ -21,8 +21,7 @@ export async function login({ username, password }) {
           reject();
       else 
           resolve();
-    })
-    ; 
+    });
   });
 }
 
@@ -49,7 +48,6 @@ return new Promise((resolve, reject) => {
         reject();
     else 
         resolve();
-  })
-  ; 
+  });
 });
 }

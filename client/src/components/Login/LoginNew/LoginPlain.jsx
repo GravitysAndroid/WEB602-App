@@ -52,7 +52,7 @@ const initialState = {
   isLoggedIn: false,
 };
 
-export default function Login() {
+export function LoginPlain() {
   const [state, dispatch] = useReducer(loginReducer, initialState);
   const { username, password, isLoading, error, isLoggedIn } = state;
 
