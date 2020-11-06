@@ -10,6 +10,7 @@ class ContactForm extends React.Component{
         super(props)
         this.state = {
             name: '',
+            email: '',
             message: '',
             disabled: false,
             emailSent: null
@@ -18,6 +19,7 @@ class ContactForm extends React.Component{
 
     //If the type of the input is a checkbox then it will equal checked, if not it will just equal the value typed in
     handleChange = (event) => {
+        console.log(event)
         const target = event.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
@@ -31,10 +33,34 @@ class ContactForm extends React.Component{
     //State set to disabled means that the user can't use the button to submit over and over
     handleSubmit = (event) => {
         event.preventDefault();
+        
         this.setState({
             disabled: true,
         })
     }
+
+   /*  Axios.post('http://localhost:3030/api/email', this.state)
+            .then(res => {
+                if(res.data.success) {
+                    this.setState({
+                        disabled: false,
+                        emailSent: true
+                    });
+                } else {
+                    this.setState({
+                        disabled: false,
+                        emailSent: false
+                    });
+                }
+            })
+            .catch(err => {
+                console.log(err);
+                this.setState({
+                    disabled: false,
+                    emailSent: false
+                });
+            })
+    } */
 
     //Renders out the actual form and what it contains
     render(){
@@ -47,16 +73,22 @@ class ContactForm extends React.Component{
                     </Form.Group>
 
                     <Form.Group className='form-group'>
+                        <Form.Label className='label' htmlFor="email">Email</Form.Label>
+                        <Form.Control className='control' id='email' name='email' type='email' value={this.state.email} onChange={this.handleChange}/>
+                    </Form.Group>
+
+                    <Form.Group className='form-group'>
                         <Form.Label className='label' htmlFor="message">Message</Form.Label>
                         <Form.Control className='control-message' id='message' name='message' as='textarea' row='4' value={this.state.message} onChange={this.handleChange}/>
                     </Form.Group>
 
-                    <Button className="button" variant='dark' type='submit' disabled={this.state.disabled}>
+                    {/* <Button className="button" variant='dark' type='submit' disabled={this.state.disabled}> */}
+                    <Button className="d-linline-block" variant='dark' type='submit' disabled={this.state.disabled}>
                         Send
                     </Button>
 
-                    {this.state.emailSent === true && <p className='d-inline success-msg'>Email Sent</p>}
-                    {this.state.emailSent === false && <p className='d-inline error-msg'>Email Not Sent</p>}
+                    {this.state.emailSent === true && <p className="d-inline success-msg">Email Sent</p>}
+                    {this.state.emailSent === false && <p className="d-inline err-msg">Email Not Sent</p>}
                 </Form>
             </Content>
             //If the form submitts then it will show a success message
