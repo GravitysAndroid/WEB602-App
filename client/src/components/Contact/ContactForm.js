@@ -10,7 +10,6 @@ class ContactForm extends React.Component{
         super(props)
         this.state = {
             name: '',
-            email: '',
             message: '',
             disabled: false,
             emailSent: null
@@ -45,11 +44,6 @@ class ContactForm extends React.Component{
                     <Form.Group className='form-group'>
                         <Form.Label className='label' htmlFor="full-name">Full Name</Form.Label>
                         <Form.Control className='control' id='full-name' name='name' type='text' value={this.state.name} onChange={this.handleChange}/>
-                    </Form.Group>
-
-                    <Form.Group className='form-group'>
-                        <Form.Label className='label' htmlFor="email">Email</Form.Label>
-                        <Form.Control className='control' id='email' name='email' type='email' value={this.state.email} onChange={this.handleChange}/>
                     </Form.Group>
 
                     <Form.Group className='form-group'>

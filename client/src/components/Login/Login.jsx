@@ -1,78 +1,5 @@
-import React, { useReducer } from 'react';
-import { login } from '../../views/utils';
+import React from 'react';
 import loginImage from './login.png'
-
-function loginReducer(draft, action) {
-    switch (action.type) {
-      case 'field': {
-        draft[action.fieldName] = action.payload;
-        return;
-      }
-      case 'login': {
-        draft.error = '';
-        draft.isLoading = true;
-        return;
-      }
-      case 'success': {
-        draft.isLoggedIn = true;
-        draft.isLoading = false;
-        //draft.username = '';
-        draft.password = '';
-        return;
-      }
-      case 'error': {
-        draft.error = 'Incorrect username or password!';
-        draft.isLoggedIn = false;
-        draft.isLoading = false;
-        draft.username = '';
-        draft.password = '';
-        return;
-      }
-      case 'logOut': {
-        draft.isLoggedIn = false;
-        return;
-      }
-      case 'toggleTodoCompleted': {
-        const todo = draft.todos.find((item) => item.title === action.payload);
-        todo.completed = !todo.completed;
-        return;
-      }
-      case 'comment':{
-          draft.error = '';
-          draft.isLoading = true;
-          return;
-      }
-      default:
-        return;
-    }
-  }
-  
-  const todos = [
-    {
-      title: 'Get milk',
-      completed: true,
-    },
-    {
-      title: 'Make YouTube video',
-      completed: false,
-    },
-    {
-      title: 'Write blog post',
-      completed: false,
-    },
-  ];
-  
-  const initialState = {
-    username: '',
-    password: '',
-    isLoading: false,
-    error: '',
-    isLoggedIn: false,
-    todos,
-  };
-  
-const StateContext = React.createContext();
-const DispatchContext = React.createContext();
 
 export class Login extends React.Component{
     constructor(props){
@@ -87,6 +14,7 @@ export class Login extends React.Component{
                     <img src={loginImage} alt=''/>
                 </div>
                 <div className='form'>
+                  <p>Please Login</p>
                     <div className="form-group">
                       <label htmlFor="username">Username</label>  
                       <input type="text" name='username' placeholder='username'/>
