@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useReducer } from 'react';
 import '../App.css';
 import Footer from '../components/Footer/Footer';
 import { Login } from '../components/Login/Index'
@@ -9,7 +9,7 @@ export default function LoginPage (){
         <>
         <h1 className='login'>login</h1>
             <Login />
-            <Footer />
+            <Footer />       
         </>
     )
 }

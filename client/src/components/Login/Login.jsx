@@ -1,15 +1,88 @@
-import React from 'react'
+import React, { useReducer } from 'react';
+import { login } from './utils';
 import loginImage from './login.png'
+
+function loginReducer(draft, action) {
+    switch (action.type) {
+      case 'field': {
+        draft[action.fieldName] = action.payload;
+        return;
+      }
+      case 'login': {
+        draft.error = '';
+        draft.isLoading = true;
+        return;
+      }
+      case 'success': {
+        draft.isLoggedIn = true;
+        draft.isLoading = false;
+        //draft.username = '';
+        draft.password = '';
+        return;
+      }
+      case 'error': {
+        draft.error = 'Incorrect username or password!';
+        draft.isLoggedIn = false;
+        draft.isLoading = false;
+        draft.username = '';
+        draft.password = '';
+        return;
+      }
+      case 'logOut': {
+        draft.isLoggedIn = false;
+        return;
+      }
+      case 'toggleTodoCompleted': {
+        const todo = draft.todos.find((item) => item.title === action.payload);
+        todo.completed = !todo.completed;
+        return;
+      }
+      case 'comment':{
+          draft.error = '';
+          draft.isLoading = true;
+          return;
+      }
+      default:
+        return;
+    }
+  }
+  
+  const todos = [
+    {
+      title: 'Get milk',
+      completed: true,
+    },
+    {
+      title: 'Make YouTube video',
+      completed: false,
+    },
+    {
+      title: 'Write blog post',
+      completed: false,
+    },
+  ];
+  
+  const initialState = {
+    username: '',
+    password: '',
+    isLoading: false,
+    error: '',
+    isLoggedIn: false,
+    todos,
+  };
+  
+const StateContext = React.createContext();
+const DispatchContext = React.createContext();
 
 export class Login extends React.Component{
     constructor(props){
         super(props);
     }
     //rendering the actual form for the user to input into
-     render(){
-         return <div className='base-container'>
-             <div className='header'>Login</div>
-             <div className='content'>
+    render(){
+        return <div className='base-container'>
+            <div className='header'>Login</div>
+            <div className='content'>
                 <div className='image'>
                     <img src={loginImage} alt=''/>
                 </div>
@@ -24,12 +97,12 @@ export class Login extends React.Component{
                       <input type="password" name='password' placeholder='password'/>
                     </div>
                 </div>
-             </div>
-             <div className="footer">
+            </div>
+            <div className="footer">
                  <button className="btn" type='button'>
-                     Login
-                 </button>
-             </div>
-         </div>         
-     }   
+                    Login
+                </button>
+            </div>
+        </div>         
+    }   
 }
