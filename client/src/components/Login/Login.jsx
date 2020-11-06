@@ -1,5 +1,5 @@
 import React, { useReducer } from 'react';
-import { login } from './utils';
+import { login } from '../../views/utils';
 import loginImage from './login.png'
 
 function loginReducer(draft, action) {
