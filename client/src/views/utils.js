@@ -6,7 +6,8 @@ async function fetchLogin(pUserName, pPassword){
         body: JSON.stringify({ name: pUserName, password : pPassword })          
     };
     alert("sending " + requestOptions.body);
-    const res = await fetch('https://webdev.talos.net.nz/~hayden-williams/api/login', requestOptions);
+    const res = await fetch('http://localhost:3001/api/login', requestOptions);
+    //const res = await fetch('https://webdev.talos.net.nz/~hayden-williams/api/login', requestOptions);
     return res;
 }
 
@@ -34,7 +35,8 @@ async function submitComment(pUserName, pComment){
       body: JSON.stringify({ name: pUserName, comment: pComment})      
   };
   alert("sending " + requestOptions.body);
-  const res = await fetch('https://webdev.talos.net.nz/~hayden-williams/api/comment', requestOptions);
+  const res = await fetch('http://localhost:3001/api/comment', requestOptions);
+  //const res = await fetch('https://webdev.talos.net.nz/~hayden-williams/api/comment', requestOptions);
   return res;
 }
 

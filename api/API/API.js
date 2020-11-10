@@ -1,5 +1,21 @@
-const express = require('express')
-const app = express()
+var indexRouter = require('../Routes/index');
+var usersRouter = require('../Routes/users');
+var testAPIRouter = require('../Routes/testAPI');
+var loginRouter = require('../Routes/login');
+var commentRouter = require('../Routes/comment');
+var express = require('express');
+
+//const express = require('express');
+var path = require('path');
+var app = express();
+
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+app.use("/testAPI", testAPIRouter);
+app.use("/login", loginRouter);
+app.use("/comment",commentRouter);
+
+//const app = express()
 const port = 3001
 
 const cardDataHomeOne = [
@@ -82,34 +98,6 @@ const cardDataThree = [
   path:'/tours'}
 ];
 
-/* const sendGrid = require('@sendGrid/mail')
-
-app.post('/api/email', (req, res, next) => {
-
-  console.log(req.body);
-
-  //sendGrid.setApiKey('');
-  const msg = {
-      to: 'haydenwill95@gmail.com',
-      from: req.body.email,
-      subject: 'Website Contact',
-      text: req.body.message
-  }
-
-  sendGrid.send(msg)
-      .then(result => {
-          res.status(200).json({
-              success: true
-          });
-      })
-      .catch(err => {
-          console.log('error: ', err);
-          res.status(401).json({
-              success: false
-          });
-      });
-}); */
-
 app.get('/api/', (req, res) => {
   res.send(cardDataOne)
   res.send(cardDataTwo)
@@ -120,6 +108,6 @@ app.get('/api/', (req, res) => {
 })
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+  console.log(`Example app listening at http://localhost:3001`)
 })
 
