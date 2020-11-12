@@ -71,7 +71,7 @@ function Navbar() {
                 className='nav-links'
                 onClick={closeMobileMenu}
               >
-                Contact Us
+                Post Comment
               </Link>
             </li>
 

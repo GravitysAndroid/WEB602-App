@@ -7,7 +7,7 @@ import ContactForm from '../components/Contact/ContactForm'
 export default function ContactUs (){
     return(
         <>
-        <h1 className='contact-us'>Contact Us</h1>
+        <h1 className='contact-us'>Post Comment</h1>
             <ContactForm />
             <Footer />
         </>
