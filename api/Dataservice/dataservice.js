@@ -3,8 +3,8 @@ let mysql = require('mysql');
 function StoreComment(aResFunction, pUser, pComment){
   let connection = mysql.createConnection({
     host: 'localhost',
-    user: 'hayden',
-    password: '8576',
+    user: 'root',
+    password: 'P@ssword1',
     database: 'hayden'
 });
 
@@ -31,8 +31,8 @@ function StoreComment(aResFunction, pUser, pComment){
 function CheckPassword(aResFunction, pUser, pPassword){
   let connection = mysql.createConnection({
     host: 'localhost',
-    user: 'hayden',
-    password: '8576',
+    user: 'root',
+    password: 'P@ssword1',
     database: 'hayden'
 });
 
@@ -60,8 +60,8 @@ function CheckPassword(aResFunction, pUser, pPassword){
 function GetUsers(aResFunction){
   let connection = mysql.createConnection({
     host: 'localhost',
-    user: 'hayden',
-    password: '8576',
+    user: 'root',
+    password: 'P@ssword1',
     database: 'hayden'
 });
 

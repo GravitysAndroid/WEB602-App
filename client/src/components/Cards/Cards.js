@@ -5,7 +5,7 @@ import CardItem from './CardItem';
 
 //Creates data to enter into the datastore which contains two different pictures
 let cardDataHomeOne = [
-/* {src:'images/img-9.jpg', 
+{src:'images/img-9.jpg', 
 text:'Take out kayaks into the sea', 
 label:'Adventure', 
 path:'/tours' }, 
@@ -13,11 +13,11 @@ path:'/tours' },
 {src:'images/img-1.jpg', 
 text:'Explore the beautiful bays' ,
 label:'Relax' ,
-path:'/tours'} */];
+path:'/tours'}];
 
 //Creates data to enter into the datastore which contains three different pictures
 let cardDataHomeTwo = [
-/* {src:'images/img-10.jpg' ,
+{src:'images/img-10.jpg' ,
 text:'Camp underneath the stars' ,
 label:'Adventure' ,
 path:'/tours'},
@@ -30,11 +30,11 @@ path:'/tours'},
 {src:'images/img-8.jpg' ,
 text:'Look at iconic landmarks' ,
 label:'Explore' ,
-path:'/tours'} */
+path:'/tours'}
 ];
 
 //Creates a list in which the data from the cardData gets passed into to display
-/* const listItemsOne = cardDataHomeOne.map((data) =>  
+const listItemsOne = cardDataHomeOne.map((data) =>  
   <CardItem 
     src={data.src}
     text={data.text} 
@@ -49,7 +49,7 @@ const listItemsTwo = cardDataHomeTwo.map((data) =>
     text={data.text} 
     label={data.label}
     path={data.path}
-/>);  */ 
+/>);
 
 function Cards() {
   const [error, setError] = useState(null);

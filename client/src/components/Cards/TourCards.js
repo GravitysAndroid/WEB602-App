@@ -6,7 +6,7 @@ import CardItem from './CardItem';
 //Creates data to enter into the datastore which contains three different pictures
 
 let cardDataOne = [
-  /* {src:'images/img-3.jpg' ,
+  {src:'images/img-3.jpg' ,
   text:'Take the kayaks out into the open waters around Golden Bay' ,
   label:'Price: $401' ,
   path:'/tours' }, 
@@ -19,12 +19,12 @@ let cardDataOne = [
   {src:'images/img-3.jpg' ,
   text:'Get up close with the local wildlife' ,
   label:'Price: $500' ,
-  path:'/tours'}  */
+  path:'/tours'} 
 ];
 
 //Creates data to enter into the datastore which contains three different pictures
 let cardDataTwo = [
-  /* {src:'images/img-3.jpg' ,
+  {src:'images/img-3.jpg' ,
   text:'Outdoor three day camp' ,
   label:'Price: $600' ,
   path:'/tours'},
@@ -37,12 +37,12 @@ let cardDataTwo = [
   {src:'images/img-3.jpg' ,
   text:'Explore the wonderful land marks around the area' ,
   label:'Price: $200' ,
-  path:'/tours'} */
+  path:'/tours'}
 ];
 
 //Creates data to enter into the datastore which contains three different pictures
 let cardDataThree = [
-  /* {src:'images/img-3.jpg' ,
+  {src:'images/img-3.jpg' ,
   text:'Go inland through the bush and experience river crossing' ,
   label:'Price: $300' ,
   path:'/tours'},
@@ -55,11 +55,11 @@ let cardDataThree = [
   {src:'images/img-3.jpg' ,
   text:'Take a helicopter to a secluded beach' ,
   label:'Price: $700' ,
-  path:'/tours'} */
+  path:'/tours'}
 ];   
 
 //Creates a list in which the data from the cardData gets passed into to display
-/* const listItemsOne = cardDataOne.map((data) => 
+const listItemsOne = cardDataOne.map((data) => 
   <CardItem 
     src={data.src}
     text={data.text} 
@@ -83,7 +83,7 @@ const listItemsThree = cardDataThree.map((data) =>
     text={data.text} 
     label={data.label}
     path={data.path}
-/>); */
+/>);
 
 function TourCards() {
   const [error, setError] = useState(null);
@@ -127,7 +127,7 @@ function TourCards() {
               label={item.label}
               path={item.path}
           />)}
-         {/*  {listItemsOne} */}
+          {/* {listItemsOne} */}
             </ul>
             <ul className='cards__items'>
             {cardDataTwo.map((item) => 

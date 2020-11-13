@@ -101,7 +101,7 @@ export default function LoginUsingContext() {
               <>
                 <h1>Welcome {username}!</h1>
                 <button onClick={() => dispatch({ type: 'logOut' })}>
-                  Log Out
+                  Log-Out
                 </button>          
                 <TodoPage todos={todos} />
               </>

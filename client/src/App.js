@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from './components/Navbar/Navbar';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Home from './views/Home.jsx';
+import Home from './views/Home';
 import Tours from './views/Tours';
 import Gallery from './views/Gallery';
 import ContactUs from './views/ContactUs';
