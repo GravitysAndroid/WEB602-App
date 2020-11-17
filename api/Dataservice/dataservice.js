@@ -56,7 +56,6 @@ function CheckPassword(aResFunction, pUser, pPassword){
   connection.end();
 }
 
-
 function GetUsers(aResFunction){
   let connection = mysql.createConnection({
     host: 'localhost',

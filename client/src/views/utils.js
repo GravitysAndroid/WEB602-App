@@ -6,7 +6,7 @@ async function fetchLogin(pUserName, pPassword){
         body: JSON.stringify({ name: pUserName, password : pPassword })          
     };
     alert("sending " + requestOptions.body);
-    const res = await fetch('http://localhost:3001/api/login', requestOptions);
+    const res = await fetch('http://localhost:3001/login', requestOptions);
     //const res = await fetch('https://webdev.talos.net.nz/~hayden-williams/api/login', requestOptions);
     return res;
 }
@@ -16,9 +16,9 @@ export async function login({ username, password }) {
     fetchLogin(username,password)
     .then( res => res.json())
     .then(data => {
-      alert("DATA IS"+data); // JSON data parsed by `data.json()` call
+      alert("DATA IS"+ data); // JSON data parsed by `data.json()` call
       let resultObj = (JSON.parse(data))[0];
-      if(resultObj.Result != 1 )
+      if(resultObj.Result !== 1 )
           reject();
       else 
           resolve();
@@ -35,7 +35,7 @@ async function submitComment(pUserName, pComment){
       body: JSON.stringify({ name: pUserName, comment: pComment})      
   };
   alert("sending " + requestOptions.body);
-  const res = await fetch('http://localhost:3001/api/comment', requestOptions);
+  const res = await fetch('http://localhost:3001/comment', requestOptions);
   //const res = await fetch('https://webdev.talos.net.nz/~hayden-williams/api/comment', requestOptions);
   return res;
 }

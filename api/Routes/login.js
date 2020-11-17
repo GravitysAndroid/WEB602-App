@@ -5,7 +5,7 @@ var {CheckPassword} = require('../dataservice/dataservice')
 router.post('/', (req, res) => {
     // handle the request
     userNamePw =  req.body;
-    console.log("post hello " + JSON.stringify(userNamePw));
+    console.log("post hello " + userNamePw.name /*+ JSON.stringify(userNamePw)*/);
     //res.json({ id: 1, name: "Catcher in the Rye" });
     CheckPassword( (jsnText) =>{
         res.json(jsnText);
@@ -14,7 +14,7 @@ router.post('/', (req, res) => {
     //res.json( JSON.stringify({ id: 1, name: "Catcher in the Rye" }));
  })
 
-  router.get('/', (req, res) => {
+   router.get('/', (req, res) => {
     // handle the request
     userNamePw =  req.body;
     console.log("get hello" + userNamePw);

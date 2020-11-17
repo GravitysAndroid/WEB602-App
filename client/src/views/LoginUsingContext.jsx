@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { useImmerReducer } from 'use-immer';
 import { login, storeComment } from './utils';
-import { ExampleComponent } from './ExampleStyle';
 
 function loginReducer(draft, action) {
   switch (action.type) {
@@ -95,7 +94,6 @@ export default function LoginUsingContext() {
     <DispatchContext.Provider value={dispatch}>
       <StateContext.Provider value={state}>
         <div className='App useContext'>
-	  <ExampleComponent />
           <div className='login-container'>
             {isLoggedIn ? (
               <>
