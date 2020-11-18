@@ -176,7 +176,7 @@ function TodoItem({ title, completed }) {
       dispatch({ type: 'success' });
     } 
     catch (error) {
-      //dispatch({ type: 'commentError' });
+      dispatch({ type: 'commentError' });
     }
   };
   return (

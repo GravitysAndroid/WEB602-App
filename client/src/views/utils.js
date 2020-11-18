@@ -46,7 +46,7 @@ export async function storeComment({ username, comment }) {
     .then(data => {
       alert("DATA IS" + data); // JSON data parsed by `data.json()` call
       let resultObj = (JSON.parse(data))[0];
-      if(resultObj.Result !== 1 )
+      if(resultObj.Result !=='Stored a comment')
           reject();
       else 
           resolve();
