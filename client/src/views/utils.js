@@ -22,8 +22,7 @@ export async function login({ username, password }) {
           reject();
       else 
           resolve();
-    })
-    ; 
+    }); 
   });
 }
 
@@ -41,17 +40,16 @@ async function submitComment(pUserName, pComment){
 }
 
 export async function storeComment({ username, pcomment }) {
-return new Promise((resolve, reject) => {
-  submitComment(username,pcomment)
-  .then( res => res.json())
-  .then(data => {
-    alert("DATA IS"+data); // JSON data parsed by `data.json()` call
-    let resultObj = (JSON.parse(data))[0];
-    if(resultObj.Result != 1 )
-        reject();
-    else 
-        resolve();
-  })
-  ; 
-});
+  return new Promise((resolve, reject) => {
+    submitComment(username, pcomment)
+    .then( res => res.json())
+    .then(data => {
+      alert("DATA IS" + data); // JSON data parsed by `data.json()` call
+      let resultObj = (JSON.parse(data))[0];
+      if(resultObj.Result !== 1 )
+          reject();
+      else 
+          resolve();
+    }); 
+  });
 }

@@ -5,7 +5,6 @@ import { SendComment } from "./utils.js"
 import { useImmerReducer } from 'use-immer';
 import { storeComment } from './utils';
 
-
 function commentReducer(draft, action) {
     switch (action.type) {
       case 'field': {
@@ -38,9 +37,7 @@ function Comment(props){
 
     const onCommentSubmit = async (e) => {
         e.preventDefault();
-    
         dispatch({ type: 'comment' });
-    
         try {
           await storeComment({ username, comment }); // <<< HERE WE CONNECT UP TO THE API CALL IN util.js
           dispatch({ type: 'success' });
@@ -50,7 +47,6 @@ function Comment(props){
       };
 
  return (
-
       <div>
           <form method="POST" action="#" onSubmit={onCommentSubmit}>
           <input

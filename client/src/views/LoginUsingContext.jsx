@@ -80,9 +80,8 @@ export default function LoginUsingContext() {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-
-    dispatch({ type: 'login' });
-
+    dispatch({ type: 'login' 
+  });
     try {
       await login({ username, password }); // <<< HERE WE CONNECT UP TO THE API CALL IN util.js
       dispatch({ type: 'success' });
@@ -143,6 +142,7 @@ export default function LoginUsingContext() {
     </DispatchContext.Provider>
   );
 }
+
 function TodoPage({ todos }) {
   return (
     <div className='todoContainer'>
@@ -153,6 +153,7 @@ function TodoPage({ todos }) {
     </div>
   );
 }
+
 function TodoItem({ title, completed }) {
   const dispatch = useContext(DispatchContext);
   const state = useContext(StateContext);
@@ -190,36 +191,36 @@ function TodoItem({ title, completed }) {
       </div>
       <div>
       <form className='form' onSubmit={onSubmitComment}> {/* HERE THE onSubmiComment is set up !!*/ }
-                {error && <p className='error'>{error}</p>}
-                <p>Enter Comment</p>
-                <input
-                  type='hidden'
-                  placeholder='username'
-                  value={username}
-                  onChange={(e) =>
-                    dispatch({
-                      type: 'field',
-                      fieldName: 'username',
-                      payload: e.currentTarget.value,
-                    })
-                  }
-                />
-                <input
-                  type='text'
-                  placeholder='comment'
-                  value={comment}
-                  onChange={(e) =>
-                    dispatch({
-                      type: 'field',
-                      fieldName: 'comment',
-                      payload: e.currentTarget.value,
-                    })
-                  }
-                />
-                <button className='submit' type='submit' disabled={isLoading}>
-                  {isLoading ? 'Logging in...' : 'Save'}
-                </button>
-              </form>
+        {error && <p className='error'>{error}</p>}
+        <p>Enter Comment</p>
+        <input
+          type='hidden'
+          placeholder='username'
+          value={username}
+          onChange={(e) =>
+            dispatch({
+              type: 'field',
+              fieldName: 'username',
+              payload: e.currentTarget.value,
+            })
+          }
+        />
+        <input
+          type='text'
+          placeholder='comment'
+          value={comment}
+          onChange={(e) =>
+            dispatch({
+              type: 'field',
+              fieldName: 'comment',
+              payload: e.currentTarget.value,
+            })
+          }
+        />
+      <button className='submit' type='submit' disabled={isLoading}>
+        {isLoading ? 'Logging in...' : 'Save'}
+      </button>
+      </form>
       </div>
     </div>
   );

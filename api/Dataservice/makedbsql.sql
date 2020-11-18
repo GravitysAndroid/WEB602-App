@@ -1,4 +1,4 @@
-/*drop database if exists hayden;
+drop database if exists hayden;
 create database hayden;
 use hayden;
 
@@ -24,7 +24,7 @@ use hayden;
         ('Trisha','P@ssword4');
  insert into Event(PersonID, Value)
  values (1, 'Todd said this'),
-       (2, 'Trent said this');*/
+       (2, 'Trent said this');
 
  drop procedure if exists GetUsers;
  delimiter //
@@ -78,6 +78,10 @@ delimiter ;
 call StoreComment('Todd','Test');
 call StoreComment('Todd','Test2');
 call StoreComment('Toddy','Test3');
+
+/*ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'P@ssword1'
+
+flush privileges;*/
 
 
 

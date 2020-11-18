@@ -12,7 +12,6 @@ function StoreComment(aResFunction, pUser, pComment){
     if (err) {
       return console.error('error: ' + err.message);
     }
-  
     console.log('Connected to the MySQL server.');
   });
 
@@ -34,13 +33,12 @@ function CheckPassword(aResFunction, pUser, pPassword){
     user: 'root',
     password: 'P@ssword1',
     database: 'hayden'
-});
+  });
 
   connection.connect(function(err) {
     if (err) {
       return console.error('error: ' + err.message);
     }
-  
     console.log('Connected to the MySQL server.');
   });
 
@@ -62,26 +60,25 @@ function GetUsers(aResFunction){
     user: 'root',
     password: 'P@ssword1',
     database: 'hayden'
-});
+  });
 
-    connection.connect(function(err) {
-        if (err) {
-          return console.error('error: ' + err.message);
-        }
-      
-        console.log('Connected to the MySQL server.');
-      });
+  connection.connect(function(err) {
+    if (err) {
+      return console.error('error: ' + err.message);
+    } 
+    console.log('Connected to the MySQL server.');
+  });
 
-      let sql = `CALL GetUsers()`;
+  let sql = `CALL GetUsers()`;
 
-      connection.query(sql, true, (error, results, fields) => {
-        if (error) {
-          return console.error(error.message);
-        }
-        console.log(results[0]);
-        aResFunction(JSON.stringify(results[0]));
-      });
-      connection.end();
+  connection.query(sql, true, (error, results, fields) => {
+    if (error) {
+      return console.error(error.message);
+    }
+    console.log(results[0]);
+    aResFunction(JSON.stringify(results[0]));
+  });
+  connection.end();
 }
 
 exports.GetUsers = GetUsers;
