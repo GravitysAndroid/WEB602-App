@@ -39,9 +39,9 @@ async function submitComment(pUserName, pComment){
   return res;
 }
 
-export async function storeComment({ username, pcomment }) {
+export async function storeComment({ username, comment }) {
   return new Promise((resolve, reject) => {
-    submitComment(username, pcomment)
+    submitComment(username, comment)
     .then( res => res.json())
     .then(data => {
       alert("DATA IS" + data); // JSON data parsed by `data.json()` call

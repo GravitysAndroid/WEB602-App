@@ -53,7 +53,7 @@ function Comment(props){
                   type='hidden'
                   placeholder='username'
                   value={username}
-            />
+          />
           <input
                   type='text'
                   placeholder='comment'

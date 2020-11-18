@@ -28,6 +28,15 @@ function loginReducer(draft, action) {
       draft.password = '';
       return;
     }
+    case 'commentError': {
+      draft.error = 'Submission Error';
+      draft.isSending = false;
+      return;
+    }
+    case 'commentSuccess': {
+      draft.isSending = false;
+      return;
+    }
     case 'logOut': {
       draft.isLoggedIn = false;
       return;
@@ -38,9 +47,9 @@ function loginReducer(draft, action) {
       return;
     }
     case 'comment':{
-        draft.error = '';
-        draft.isLoading = true;
-        return;
+      draft.error = '';
+      draft.isLoading = true;
+      return;
     }
     default:
       return;
@@ -157,17 +166,17 @@ function TodoPage({ todos }) {
 function TodoItem({ title, completed }) {
   const dispatch = useContext(DispatchContext);
   const state = useContext(StateContext);
-  const   { username, comment, isLoading, error, isLoggedIn } = state;
-  //const isLoggedIn = true;
+  const { username, comment, isSending, error, isLoggedIn } = state;
+
   const onSubmitComment = async (e) => {
     e.preventDefault();
     dispatch({ type: 'comment' });
     try {
-      alert('Calling api to store the comment - something wrong with the login state');
       await storeComment({ username, comment }); // <<< HERE WE CONNECT UP TO THE API CALL IN util.js
       dispatch({ type: 'success' });
-    } catch (error) {
-      dispatch({ type: 'error' });
+    } 
+    catch (error) {
+      //dispatch({ type: 'commentError' });
     }
   };
   return (
@@ -217,8 +226,8 @@ function TodoItem({ title, completed }) {
             })
           }
         />
-      <button className='submit' type='submit' disabled={isLoading}>
-        {isLoading ? 'Logging in...' : 'Save'}
+      <button className='submit' type='submit' disabled={isSending}>
+        {isSending ? 'Submitting...' : 'Submit'}
       </button>
       </form>
       </div>
